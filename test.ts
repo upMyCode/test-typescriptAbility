@@ -72,3 +72,60 @@ const rect5: RectWithArea = {
         return this.size.width * this.size.height
     }
 }
+
+interface IClock {
+    time: Date
+    setTime(date: Date): void
+}
+
+class Clock implements IClock {
+    time: Date = new Date()
+    setTime(date: Date): void {
+        this.time = date
+    }
+}
+
+// stylesheet
+
+interface Styles {
+    [key: string]: string
+}
+
+const css: Styles = {
+    borderRadius: '50px',
+    marginTop: '10px'
+}
+
+//enum 
+
+enum Membership {
+    Simple,
+    Standard,
+    Premium
+}
+
+const membership = Membership.Standard
+const membershipReverse = Membership[2]
+
+console.log(membership) // 1
+console.log(membershipReverse)
+
+enum SocialMedia {
+    VK = 'VK',
+    FACEBOOK = 'FACEBOOK',
+    INSTAGRAM = 'INSTAGRAM'
+}
+
+const getMedia = SocialMedia.INSTAGRAM
+
+console.log(getMedia)
+
+// functions 
+
+function addNumber(a: number, b: number): number {
+    return a ** b
+}
+
+function toUpperCase(str: string): string {
+    return str.trim().toUpperCase()
+}
