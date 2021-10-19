@@ -68,3 +68,32 @@ var SocialMedia;
 })(SocialMedia || (SocialMedia = {}));
 var getMedia = SocialMedia.INSTAGRAM;
 console.log(getMedia);
+// functions 
+function addNumber(a, b) {
+    return Math.pow(a, b);
+}
+function toUpperCase(str) {
+    return str.trim().toUpperCase();
+}
+function position(a, b) {
+    if (!a && !b) {
+        return {
+            x: undefined,
+            y: undefined
+        };
+    }
+    if (a && !b) {
+        return {
+            x: a,
+            y: undefined,
+            "default": a.toString()
+        };
+    }
+    return {
+        x: a,
+        y: b
+    };
+}
+console.log('Empty:', position());
+console.log('One param:', position(42));
+console.log('Two param:', position(12, 13));

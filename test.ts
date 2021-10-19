@@ -129,3 +129,64 @@ function addNumber(a: number, b: number): number {
 function toUpperCase(str: string): string {
     return str.trim().toUpperCase()
 }
+interface MyPosition {
+    x: number | undefined
+    y: number | undefined
+}
+interface MyPositionDefault extends MyPosition {
+    default: string
+}
+
+function position(): MyPosition  // if this function doesn't get param then return interface
+function position(a: number, b: number): MyPosition
+function position(a: number): MyPositionDefault
+
+function position(a?: number, b?: number) {
+    if (!a && !b) {
+        return {
+            x: undefined,
+            y: undefined
+        }
+    }
+
+    if (a && !b) {
+        return {
+            x: a,
+            y: undefined,
+            default: a.toString()
+        }
+    }
+
+    return {
+        x: a,
+        y: b
+    }
+
+}
+
+console.log('Empty:', position())
+console.log('One param:', position(42))
+console.log('Two param:', position(12, 13))
+
+// class
+
+class Typescript {
+    version: string
+
+    constructor(version: string) {
+        this.version = version
+    }
+
+    info(name: string) {
+        return `[${name}]: Typescript version is $ ${this.version}`
+    }
+}
+
+class Car {
+    readonly model: string 
+    readonly numberOfWheels: number = 4
+
+    constructor(theModel: string) {
+        this.model = theModel
+    }
+}
